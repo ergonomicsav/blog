@@ -26,7 +26,7 @@
                                 <div class="entry-content">
                                     {!!$post->description!!}
                                     <div class="btn-continue-reading text-center text-uppercase">
-                                        <a href="blog.html" class="more-link">Continue Reading</a>
+                                        <a href="#" class="more-link">Continue Reading</a>
                                     </div>
                                 </div>
                                 <div class="social-share">
