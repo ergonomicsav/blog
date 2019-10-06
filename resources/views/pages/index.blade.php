@@ -9,7 +9,8 @@
                     @foreach($posts as $post)
                         <article class="post">
                             <div class="post-thumb">
-                                <a href="{{route('post.show', $post->slug)}}"><img src="{{$post->getImage()}}" alt=""></a>
+                                <a href="{{route('post.show', $post->slug)}}"><img src="{{$post->getImage()}}"
+                                                                                   alt=""></a>
 
                                 <a href="{{route('post.show', $post->slug)}}" class="post-thumb-overlay text-center">
                                     <div class="text-uppercase text-center">смотреть</div>
@@ -17,20 +18,24 @@
                             </div>
                             <div class="post-content">
                                 <header class="entry-header text-center text-uppercase">
-                                    <h6><a href="#">{{$post->getCategoryTitle()}}</a></h6>
-
-                                    <h1 class="entry-title"><a href="{{route('post.show', $post->slug)}}">{{$post->title}}</a></h1>
-
-
+                                    @if($post->hasCategory())
+                                        <h6>
+                                            <a href="{{route('category.show', $post->category->slug)}}">{{$post->getCategoryTitle()}}</a>
+                                        </h6>
+                                    @endif
+                                    <h1 class="entry-title"><a
+                                                href="{{route('post.show', $post->slug)}}">{{$post->title}}</a></h1>
                                 </header>
                                 <div class="entry-content">
                                     {!!$post->description!!}
                                     <div class="btn-continue-reading text-center text-uppercase">
-                                        <a href="{{route('post.show', $post->slug)}}" class="more-link">Читать далее...</a>
+                                        <a href="{{route('post.show', $post->slug)}}" class="more-link">Читать
+                                            далее...</a>
                                     </div>
                                 </div>
                                 <div class="social-share">
-                                    <span class="social-share-title pull-left text-capitalize">By <a href="#">Rubel</a> {{$post->getDate()}}</span>
+                                    <span class="social-share-title pull-left text-capitalize">By <a
+                                                href="#">Rubel</a> {{$post->getDate()}}</span>
                                     <ul class="text-center pull-right">
                                         <li><a class="s-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
                                         <li><a class="s-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
