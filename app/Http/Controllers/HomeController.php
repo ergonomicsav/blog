@@ -13,7 +13,12 @@ class HomeController extends Controller
     {
 //        dd(__METHOD__);
         $posts = Post::paginate(3);
-        return view('pages.index', compact('posts'));
+//        $popularPost = Post::orderBy('views', 'desc')->take(3)->pluck('id')->all();
+        $popularPost = Post::orderBy('views', 'desc')->take(3)->get();
+        $featuredPost = Post::where('is_featured', 1)->take(3)->get();
+        $recentPost = Post::orderBy('date', 'desc')->take(4)->get();
+        $categories = Category::all();
+        return view('pages.index', compact('posts', 'popularPost', 'featuredPost', 'recentPost', 'categories'));
     }
 
     public function show($slug)
