@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
@@ -27,5 +29,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+        view()->composer('pages._sidebar', function ($view) {
+            $view->with('popularPost', Post::getPopularPost());
+            $view->with('featuredPost', Post::getFeaturedPost());
+            $view->with('recentPost', Post::getRecentPost());
+            $view->with('categories', Category::all());
+        });
     }
 }
