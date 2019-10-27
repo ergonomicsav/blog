@@ -19,12 +19,13 @@
 //    '/admin/posts' => 'Admin\PostController'
 //]);
 
+
 Route::get('/', 'HomeController@index');
 Route::get('/post/{slug}', 'HomeController@show')->name('post.show');
 Route::get('/tag/{slug}', 'HomeController@tag')->name('tag.show');
 Route::get('/category/{slug}', 'HomeController@category')->name('category.show');
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admin'], function () {
     Route::get('/', 'DashboardController@index');
     Route::resources([
         '/categories' => 'CategoriesController',
@@ -34,9 +35,16 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     ]);
 });
 
-Route::get('/register', 'AuthController@registerForm');
-Route::post('/register', 'AuthController@register');
+Route::group(['middleware' => 'auth'], function (){
+    Route::get('/logout', 'AuthController@logout');
+});
 
-Route::get('/login', 'AuthController@loginForm');
-Route::post('/login', 'AuthController@login');
-Route::get('/logout', 'AuthController@logout');
+Route::group(['middleware' => 'guest'], function (){
+    Route::get('/register', 'AuthController@registerForm');
+    Route::post('/register', 'AuthController@register');
+
+    Route::get('/login', 'AuthController@loginForm');
+    Route::post('/login', 'AuthController@login');
+});
+
+

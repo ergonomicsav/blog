@@ -30,7 +30,7 @@ class UserUpdateRequest extends FormRequest
             'email' => [
                 'required',
                 'email',
-                Rule::unique('users')->ignore($user->id),
+//                Rule::unique('users')->ignore($user->id),
             ],
             'avatar' => 'nullable|image'
         ];
