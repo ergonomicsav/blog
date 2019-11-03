@@ -39,6 +39,7 @@ Route::group(['middleware' => 'auth'], function (){
     Route::get('/logout', 'AuthController@logout');
     Route::get('/profile', 'ProfileController@index');
     Route::post('/profile', 'ProfileController@store');
+    Route::post('/comment', 'CommentsController@store');
 });
 
 Route::group(['middleware' => 'guest'], function (){
