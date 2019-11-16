@@ -25,6 +25,7 @@ Route::get('/post/{slug}', 'HomeController@show')->name('post.show');
 Route::get('/tag/{slug}', 'HomeController@tag')->name('tag.show');
 Route::get('/category/{slug}', 'HomeController@category')->name('category.show');
 Route::post('/subscribe', 'SubscribeController@exec');
+Route::get('/verify/{token}', 'SubscribeController@verify');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admin'], function () {
     Route::get('/', 'DashboardController@index');

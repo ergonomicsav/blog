@@ -6,7 +6,7 @@
             @include('admin.error')
             <form action="/subscribe" method="post">
                 @csrf
-                <input type="text" placeholder="Your email address">
+                <input type="text" placeholder="Your email address" name="email">
                 <input type="submit" value="Subscribe Now"
                        class="text-uppercase text-center btn btn-subscribe">
             </form>

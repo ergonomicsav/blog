@@ -5,11 +5,6 @@
     <div class="main-content">
         <div class="container">
             <div class="row">
-                @if(session('status'))
-                    <div class="alert alert-success">
-                        {{session('status')}}
-                    </div>
-                @endif
                 <div class="col-md-8">
                     <article class="post">
                         <div class="post-thumb">

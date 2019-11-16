@@ -61,8 +61,6 @@
 
             </div>
             <!-- /.navbar-collapse -->
-
-
             <div class="show-search">
                 <form role="search" method="get" id="searchform" action="#">
                     <div>
@@ -74,6 +72,17 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
+<div class="container">
+    @if(session('status'))
+        <div class="row">
+            <div class="col-md-8">
+                <div class="alert alert-info">
+                    {{session('status')}}
+                </div>
+            </div>
+        </div>
+    @endif
+</div>
 @yield('content')
 <!--footer start-->
 <div id="footer">

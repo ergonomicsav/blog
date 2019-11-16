@@ -8,11 +8,6 @@
                 <div class="col-md-8">
 
                     <div class="leave-comment mr0"><!--leave comment-->
-                        @if(session('status'))
-                            <div class="alert alert-success">
-                                {{session('status')}}
-                            </div>
-                        @endif
                         <h3 class="text-uppercase">My profile</h3>
                         @include('admin.error')
                         <br>
