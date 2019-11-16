@@ -247,4 +247,9 @@ class Post extends Model
         return self::orderBy('date', 'desc')->take(4)->get();
     }
 
+    public function getComments()
+    {
+        return $this->comments()->where('status', 1)->get();
+    }
+
 }

@@ -18,13 +18,13 @@ class Comment extends Model
 
     public function allow()
     {
-        $this->status = 0;
+        $this->status = 1;
         $this->save();
     }
 
     public function noallow()
     {
-        $this->status = 1;
+        $this->status = 0;
         $this->save();
     }
 
@@ -36,7 +36,7 @@ class Comment extends Model
         return $this->noallow();
     }
 
-    public function remov()
+    public function remove()
     {
         $this->delete();
     }
