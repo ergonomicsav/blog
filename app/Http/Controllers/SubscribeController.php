@@ -17,6 +17,7 @@ class SubscribeController extends Controller
     public function exec(SubscribeExecRequest $request)
     {
         $subs = Subscription::add($request->get('email'));
+        $subs->generateToken();
 
         Mail::to($subs)->queue(new SubscribeEmail($subs));
 
