@@ -44,7 +44,7 @@
                                 <td>{{$comment->text}}</td>
                                 <td>
                                     @if($comment->status == 1)
-                                        <a href="comments/toggle/{{$comment->id}}" class="fa fa-thumbs-o-up">
+                                        <a href="comments/toggle/{{$comment->id}}" class="fa fa-thumbs-o-up"></a>
                                     @else
                                         <a href="comments/toggle/{{$comment->id}}" class="fa fa-lock"></a>
                                     @endif
