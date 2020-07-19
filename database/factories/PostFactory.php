@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(Post::class, function (Faker $faker) {
     return [
         'title' => $faker->sentence(2, true),
-        'content' => $faker->text(250),
+        'content' => $faker->text(1000),
         'category_id' => 5,
         'user_id' => 1,
         'status' => 1,
@@ -18,6 +18,6 @@ $factory->define(Post::class, function (Faker $faker) {
         'date' => '15/16/16',
 //        'image' => 'photo1.png'
         'image' => $faker->image('public/uploads', 800, 600),
-        'description' => $faker->text(1000)
+        'description' => $faker->text(250)
     ];
 });
