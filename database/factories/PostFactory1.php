@@ -17,6 +17,7 @@ $factory->define(Post::class, function (Faker $faker) {
 //        'date' => $faker->time($format = 'H:i:s', $max = 'now'),
         'date' => '15/16/16',
 //        'image' => 'photo1.png'
-        'image' => $faker->image('public/uploads', 1250, 835)
+        'image' => $faker->image('public/uploads', 800, 600),
+        'description' => $faker->text(1000)
     ];
 });
