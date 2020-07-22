@@ -51,12 +51,18 @@
                                 <select class="form-control select2" multiple="multiple"
                                         data-placeholder="Выберите теги"
                                         style="width: 100%;" name="tags[]">
-                                    @foreach($tags as $key => $tag)
-                                        @foreach($selectedTags as $sel)
-                                            <option value="{{$key}}"
-                                                    @if($key == $sel)selected="selected"@endif>{{$tag}}</option>
+                                    @if(!empty($selectedTags))
+                                        @foreach($tags as $key => $tag)
+                                            @foreach($selectedTags as $sel)
+                                                    <option value="{{$key}}"
+                                                            @if($key == $sel) selected="selected"@endif>{{$tag}}</option>
+                                            @endforeach
                                         @endforeach
-                                    @endforeach
+                                    @else
+                                        @foreach($tags as $key => $tag)
+                                            <option value="{{$key}}">{{$tag}}</option>
+                                        @endforeach
+                                    @endif
                                 </select>
                             </div>
                             <!-- Date -->
